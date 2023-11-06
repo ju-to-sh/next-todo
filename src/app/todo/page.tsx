@@ -1,9 +1,11 @@
-const TodoPage = () => {
+import { Box } from "@chakra-ui/react"
+
+export default function TodoPage () {
   return (
     <>
-      <h1>Todo List</h1>
+      <Box>
+        <h1>Todo List</h1>
+      </Box>
     </>
   )
 }
-
-export default TodoPage
