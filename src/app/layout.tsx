@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Providers from "../providers/Providers";
+import { Providers } from "../providers/Providers";
+import { Container } from "@chakra-ui/react";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,8 +11,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+      <body>
+        <Providers>
+          <Container maxW="container.lg" m="0 auto" centerContent>
+            {children}
+          </Container>
+        </Providers>
       </body>
     </html>
   );
