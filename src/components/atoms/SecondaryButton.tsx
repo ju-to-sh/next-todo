@@ -5,9 +5,9 @@ type Props = {
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
-export const PrimaryButton = ({ children, onClick }: Props) => {
+export const SecondaryButton = ({ children, onClick }: Props) => {
   return (
-    <Button onClick={onClick} colorScheme="messenger" size="sm" variant="solid">
+    <Button onClick={onClick} colorScheme="red" size="sm" variant="solid" ml="2">
       {children}
     </Button>
   );
