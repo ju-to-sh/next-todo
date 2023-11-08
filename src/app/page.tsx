@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Home() {
   const [todoText, setTodoText] = useState("");
   const [incompleteTodos, setIncompleteTodos] = useState(["task1", "task2"]);
+  const [completeTodos, setCompleteTodos] = useState(["complete"]);
   const onChangeTodoText = (e: React.ChangeEvent<HTMLInputElement>) => setTodoText(e.target.value);
   const onClickAddTodo = (e: React.MouseEvent<HTMLButtonElement>) => {
     const newTodos = [...incompleteTodos, todoText];
@@ -17,6 +18,9 @@ export default function Home() {
     const newTodos = [...incompleteTodos];
     newTodos.splice(index, 1);
     setIncompleteTodos(newTodos);
+  };
+  const onClickBackTodo = () => {
+    alert("back");
   };
 
   return (
@@ -48,6 +52,25 @@ export default function Home() {
                     </Text>
                     <PrimaryButton onClick={onClickAddTodo}>完了</PrimaryButton>
                     <SecondaryButton onClick={() => onClickDeleteTodo(index)}>削除</SecondaryButton>
+                  </Flex>
+                </ListItem>
+              );
+            })}
+          </UnorderedList>
+        </Box>
+        <Box padding="4" color="black" maxW="md" bg="#eee">
+          <Heading as="h2" size="md" mb="4" textAlign="center">
+            完了のタスク
+          </Heading>
+          <UnorderedList>
+            {completeTodos.map((todo, index) => {
+              return (
+                <ListItem key={index} display="flex" justifyContent="center" p="1">
+                  <Flex alignItems="center">
+                    <Text fontSize="sm" mr="4">
+                      {todo}
+                    </Text>
+                    <PrimaryButton onClick={onClickBackTodo}>戻す</PrimaryButton>
                   </Flex>
                 </ListItem>
               );
