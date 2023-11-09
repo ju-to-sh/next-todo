@@ -15,12 +15,27 @@ export default function Home() {
     setTodoText("");
   };
   const onClickDeleteTodo = (index: number) => {
-    const newTodos = [...incompleteTodos];
-    newTodos.splice(index, 1);
-    setIncompleteTodos(newTodos);
+    const newIncompleteTodos = [...incompleteTodos];
+    newIncompleteTodos.splice(index, 1);
+    setIncompleteTodos(newIncompleteTodos);
   };
-  const onClickBackTodo = () => {
-    alert("back");
+
+  const onClickCompleteTodo = (index: number) => {
+    const newIncompleteTodos = [...incompleteTodos];
+    newIncompleteTodos.splice(index, 1);
+    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
+    setIncompleteTodos(newIncompleteTodos);
+    setCompleteTodos(newCompleteTodos);
+  };
+
+  // const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
+
+  const onClickBackTodo = (index: number) => {
+    const newCompleteTodos = [...completeTodos];
+    newCompleteTodos.splice(index, 1);
+    const newIncompleteTodos = [...incompleteTodos, completeTodos[index]];
+    setCompleteTodos(newCompleteTodos);
+    setIncompleteTodos(newIncompleteTodos);
   };
 
   return (
@@ -38,7 +53,7 @@ export default function Home() {
             <PrimaryButton onClick={onClickAddTodo}>追加</PrimaryButton>
           </Flex>
         </Box>
-        <Box padding="4" color="black" maxW="md">
+        <Box padding="4" color="black" maxW="md" minH="200px">
           <Heading as="h2" size="md" mb="4" textAlign="center">
             未完了のタスク
           </Heading>
@@ -50,7 +65,7 @@ export default function Home() {
                     <Text fontSize="sm" mr="4">
                       {todo}
                     </Text>
-                    <PrimaryButton onClick={onClickAddTodo}>完了</PrimaryButton>
+                    <PrimaryButton onClick={() => onClickCompleteTodo(index)}>完了</PrimaryButton>
                     <SecondaryButton onClick={() => onClickDeleteTodo(index)}>削除</SecondaryButton>
                   </Flex>
                 </ListItem>
@@ -58,7 +73,7 @@ export default function Home() {
             })}
           </UnorderedList>
         </Box>
-        <Box padding="4" color="black" maxW="md" bg="#eee">
+        <Box padding="4" color="black" maxW="md" minH="200px" bg="#eee">
           <Heading as="h2" size="md" mb="4" textAlign="center">
             完了のタスク
           </Heading>
@@ -70,7 +85,7 @@ export default function Home() {
                     <Text fontSize="sm" mr="4">
                       {todo}
                     </Text>
-                    <PrimaryButton onClick={onClickBackTodo}>戻す</PrimaryButton>
+                    <PrimaryButton onClick={() => onClickBackTodo(index)}>戻す</PrimaryButton>
                   </Flex>
                 </ListItem>
               );
