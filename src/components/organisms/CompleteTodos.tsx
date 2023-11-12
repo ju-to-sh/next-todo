@@ -20,7 +20,7 @@ export const CompleteTodos = ({ completeTodos, onClick }: Props) => {
                 <Text fontSize="sm" mr="4">
                   {todo}
                 </Text>
-                <PrimaryButton onClick={() => onClick(index)}>戻す</PrimaryButton>
+                {todo && <PrimaryButton onClick={() => onClick(index)}>戻す</PrimaryButton>}
               </Flex>
             </ListItem>
           );

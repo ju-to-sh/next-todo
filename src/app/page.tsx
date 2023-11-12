@@ -7,8 +7,8 @@ import { CompleteTodos } from "@/components/organisms/CompleteTodos";
 
 export default function Home() {
   const [todoText, setTodoText] = useState("");
-  const [incompleteTodos, setIncompleteTodos] = useState(["task1", "task2"]);
-  const [completeTodos, setCompleteTodos] = useState(["complete"]);
+  const [incompleteTodos, setIncompleteTodos] = useState(["プログラミング勉強", "洗濯", "ゴミ捨て"]);
+  const [completeTodos, setCompleteTodos] = useState([""]);
   const onChangeTodoText = (e: React.ChangeEvent<HTMLInputElement>) => setTodoText(e.target.value);
   const onClickAddTodo = () => {
     const newTodos = [...incompleteTodos, todoText];
