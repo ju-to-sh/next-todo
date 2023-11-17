@@ -8,7 +8,7 @@ type Props = {
 
 export const CompleteTodos = ({ completeTodos, onClick }: Props) => {
   return (
-    <Box padding="4" color="black" maxW="md" minH="200px" bg="#eee">
+    <Box padding="4" color="black" maxW="md" minWidth="400px" minH="200px" bg="#e2e8f0" margin="0 auto">
       <Heading as="h2" size="md" mb="4" textAlign="center">
         完了のタスク
       </Heading>

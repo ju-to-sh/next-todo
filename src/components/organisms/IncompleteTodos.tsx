@@ -10,7 +10,7 @@ type Props = {
 
 export const IncompleteTodos = ({ incompleteTodos, onClickComplete, onClickDelete }: Props) => {
   return (
-    <Box padding="4" color="black" maxW="md" minH="200px">
+    <Box padding="4" color="black" maxW="md" minWidth="400px" minH="200px" margin="0 auto">
       <Heading as="h2" size="md" mb="4" textAlign="center">
         未完了のタスク
       </Heading>
