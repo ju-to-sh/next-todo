@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "../providers/Providers";
 import { Container } from "@chakra-ui/react";
-import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
